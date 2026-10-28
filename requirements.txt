@@ -1,0 +1,6 @@
+numpy
+scipy
+sounddevice
+soundfile
+# Optional, better quality offline conversion:
+# librosa
