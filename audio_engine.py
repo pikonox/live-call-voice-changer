@@ -20,6 +20,14 @@ from scipy.io import wavfile
 from scipy.signal import stft, istft
 
 PRESETS = {
+    # DEFAULT - Pakistani Female (Urdu accent):
+    # Pitch shift sirf awaz ki pitch badalta hai, tumhari bolne ka
+    # tareeqa, Urdu lafz aur Pakistani accent change NAHI karta.
+    # Is liye agar tum Urdu me Pakistani lehje me bologe, output bhi
+    # wohi Pakistani female accent me sunai dega, Western/American
+    # AI voice jaisa nahi. Pitch jaan boojh kar zyada upar nahi
+    # rakha taake awaz natural lage, cartoon ya foreign na lage.
+    "pakistani_female": {"label": "Pakistani Female (Urdu accent)", "n_steps": 4, "gain": 0.97},
     "natural_girl": {"label": "Natural Girl", "n_steps": 4, "gain": 1.0},
     "soft_girl": {"label": "Soft Girl", "n_steps": 5, "gain": 0.95},
     "energetic_girl": {"label": "Energetic Girl", "n_steps": 6, "gain": 1.0},
@@ -60,8 +68,8 @@ def pitch_shift(y, sr, n_steps):
     except Exception:
         return _pitch_shift_stft(y.astype(np.float32), sr, n_steps)
 
-def convert_array(y, sr, preset_name="natural_girl", custom_steps=None):
-    preset = PRESETS.get(preset_name, PRESETS["natural_girl"])
+def convert_array(y, sr, preset_name="pakistani_female", custom_steps=None):
+    preset = PRESETS.get(preset_name, PRESETS["pakistani_female"])
     n_steps = custom_steps if custom_steps is not None else preset["n_steps"]
     # Normalise to float -1..1
     if y.dtype != np.float32 and y.dtype != np.float64:
@@ -77,7 +85,7 @@ def convert_array(y, sr, preset_name="natural_girl", custom_steps=None):
         out = out * (0.95 / peak)
     return out, sr
 
-def convert_file(input_path, output_path, preset_name="natural_girl", custom_steps=None):
+def convert_file(input_path, output_path, preset_name="pakistani_female", custom_steps=None):
     sr, data = wavfile.read(input_path)
     out, sr_out = convert_array(data, sr, preset_name, custom_steps)
     wavfile.write(output_path, sr_out, (out * 32767).astype(np.int16))

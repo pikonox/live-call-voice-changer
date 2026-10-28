@@ -31,7 +31,7 @@ class App:
         self.root = root
         root.title("Voice Changer - Windows + Mac v1")
         root.geometry("560x520")
-        self.preset = tk.StringVar(value="natural_girl")
+        self.preset = tk.StringVar(value="pakistani_female")
         self.status = tk.StringVar(value="Ready. Pehle Voice Note mode try karo, phir Live mode.")
         self.live_running = False
         self.stream = None

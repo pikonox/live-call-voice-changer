@@ -19,9 +19,23 @@ python3 app.py
 ```
 
 ## Presets
-- Natural Girl (4 steps up) - sab se pehle ye try karo
+- **Pakistani Female (Urdu accent) (4 steps up) - DEFAULT, sab se pehle ye try karo**
+- Natural Girl (4 steps up)
 - Soft Girl (5 steps up)
 - Energetic Girl (6 steps up)
+
+## Pakistani female accent kaise milega? (important)
+Ye app tumhari awaz ko clone nahi karta, sirf pitch badalta hai. Is ka faida ye hai:
+- Tum jo accent bologe, wohi accent output me rahega
+- Agar tum Urdu me Pakistani lehje me bologe, to output bhi Pakistani female accent me sunai dega
+- Voicemod jaisi Western presets ki tarah American/British accent nahi aayega, kyunki wo AI voice tumhari jagah nahi le rahi
+
+Pakistani accent ke liye ye 3 baatein lazmi hain:
+1. **Urdu me bolo**, English me bolne se accent automatically Western jaisa lagne lagta hai
+2. **Pitch zyada upar mat karo** - Pakistani Female preset isi liye 4 steps par rakha hai, zyada pitch se awaz cartoon aur foreign lagti hai
+3. **Normal speed aur natural lehja rakho** - sales call me aahista, saaf aur polite Urdu sab se zyada trust banati hai
+
+Agar tum chaho ke koi aur tumhare liye bole, to us Pakistani female speaker ki awaz record kar ke usi ko convert karo, tab accent 100% original rahega.
 
 ## Sachhi limit (important)
 Ye v1 pitch-shift technology hai, AI cloning nahi. Is liye:
